@@ -4,6 +4,7 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+
 class Solution:
     def printListFromTailToHead(self, listnode):
         l = []
@@ -11,6 +12,17 @@ class Solution:
             l.append(listnode.val)
             listnode = listnode.next
         return l[::-1]
+
+    def reversedListNodes(self, head):
+        if not head.next:
+            return head
+        pre = None
+        while head:
+            next_ = head.next
+            head.next = pre
+            pre = head
+            head = next_
+        return pre
 
 
 if __name__ == '__main__':
@@ -27,4 +39,5 @@ if __name__ == '__main__':
 
     solution = Solution()
     ans = solution.printListFromTailToHead(A1)
-    print(ans)
+    ans2 = solution.reversedListNodes(A1)
+    print(ans2)
