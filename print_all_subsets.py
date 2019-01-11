@@ -5,7 +5,6 @@ class Solution:
         self.getsubsets(array, subset, index=0, all_subset=all_subset)
         return all_subset
 
-
     def getsubsets(self, array, subset, index, all_subset):
         if index == len(array):
             all_subset.append([i for i in subset if i])

@@ -3,11 +3,12 @@ class Solution:
         # write code here
         for i in range(0,rows):
             for j in range(0,cols):
+                print(matrix)
                 if matrix[i*cols+j]==path[0] and self.find_path(list(matrix),rows,cols,path[1:],i,j):
-                        return True
+                    return True
         return False
 
-    def find_path(self,matrix,rows,cols,path,i,j):
+    def find_path(self, matrix, rows, cols, path, i, j):
         if not path:
             return True
         matrix[i*cols+j]=0
