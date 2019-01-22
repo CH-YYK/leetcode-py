@@ -23,14 +23,15 @@ class Solution:
         middle = head
         pre = ListNode(None)
         pre.next = head
-        index = 1
+        index = 0
         while current.next:
             index += 1
-            if (index-1) % 2 == 0:
+            if index > 0 and index % 2 == 0:
                 middle = middle.next
                 pre = pre.next
             current = current.next
         pre.next = pre.next.next
+        return head
 
 if __name__ == '__main__':
     A = ListNode(1)

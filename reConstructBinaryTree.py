@@ -12,7 +12,7 @@ class TreeNode:
 class Solution:
     def reConstructBinaryTree(self, pre_, in_):
         # no branches
-        if len(pre_) == 0 or len(in_) == 0:
+        if len(pre_) == 0 and len(in_) == 0:
             return None
 
         # define root Node
