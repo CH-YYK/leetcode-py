@@ -41,6 +41,60 @@ class Tree:
             self.postOrderTraversal(node.right, traversal)
             traversal.append(node.val)
 
+    def inordertraversal_nonrecur(self, root):
+        if not root:
+            return []
+        stack = [root]
+        res = []
+        while stack:
+            node = stack.pop()
+            if not node.left and not node.right:
+                res.append(node.val)
+            else:
+                if node.right:
+                    stack.append(node.right)
+                stack.append(BiTreeNode(node.val))
+                if node.left:
+                    stack.append(node.left)
+        return res
+
+    def postordertraversal_nonrecur(self, root):
+        if not root:
+            return []
+        stack = [root]
+        res = []
+        while stack:
+            node = stack.pop()
+            if not node.left and not node.right:
+                res.append(node.val)
+            else:
+                stack.append(BiTreeNode(node.val))
+                if node.right:
+                    stack.append(node.right)
+                if node.left:
+                    stack.append(node.left)
+        return res
+
+    def preordertraversal_nonrecur(self, root):
+        if not root:
+            return []
+        stack = [root]
+        res = []
+        while stack:
+            node = stack.pop()
+            if not node.left and not node.right:
+                res.append(node.val)
+            else:
+                if node.right:
+                    stack.append(node.right)
+                if node.left:
+                    stack.append(node.left)
+                stack.append(BiTreeNode(node.val))
+        return res
+
+
+
+
 
 if __name__ == '__main__':
     root = BiTreeNode(1)
@@ -52,8 +106,11 @@ if __name__ == '__main__':
 
     Tree = Tree(root)
     # Tree.inOrderTraversal(Tree.root, Tree.Traversal)
+    # Tree.inOrderTraversal(Tree.root, Tree.Traversal)
     Tree.preOrderTraversal(Tree.root, Tree.Traversal)
-
     print(Tree.Traversal)
+    #print(Tree.inordertraversal_nonrecur(Tree.root))
+    #print(Tree.postordertraversal_nonrecur(Tree.root))
+    print(Tree.preordertraversal_nonrecur(Tree.root))
     # Tree.preOrderTraversal(Tree.root)
     # Tree.postOrderTraversal(Tree.root, [])

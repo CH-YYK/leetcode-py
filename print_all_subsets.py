@@ -1,8 +1,7 @@
 class Solution:
     def all_subsets(self, array):
         all_subset = []
-        subset = []
-        self.getsubsets(array, subset, index=0, all_subset=all_subset)
+        self.getsubsets(array, [], index=0, all_subset=all_subset)
         return all_subset
 
     def getsubsets(self, array, subset, index, all_subset):
