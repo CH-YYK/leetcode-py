@@ -21,7 +21,7 @@ class Solution:
         elif root.val > val:
             return self.searchBST(root.left, val)
 
-    def searchBST(self, root, val):
+    def searchBST2(self, root, val):
         if not root:
             return
         stack = [root]
