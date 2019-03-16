@@ -1,4 +1,20 @@
 class Solution:
+    def canIWin(self, M: int, T: int) -> bool:
+        Sum = M * (M+1) // 2
+        if(Sum < T):
+            return False
+        if(T <= 0):
+            return True
+    
+    def recurCanIWin(self, M:int, T:int) -> bool:
+        if T <= 0:
+            return False
+        for i in range(0, M):
+            if !self.recurCanIWin(M, )
+
+
+
+class Solution2:
     def canIWin(self, maxChoosableInteger: 'int', desiredTotal: 'int') -> 'bool':
         sums = sum(range(maxChoosableInteger+1))
         if sums < desiredTotal:
@@ -20,3 +36,4 @@ class Solution:
                 memo[hash] = True
                 return True
         return False
+
