@@ -44,7 +44,34 @@ class Solution2:
             ans = min(ans, l1[i]+l2[i])
         return ans
 
+class Solution3:
+    def minFlipsMonoIncr(self, S):
+        dp = [[0 for i in range(len(S))] for j in range(2)]
+        if S[0] == '0':
+            dp[0][0] = 0
+            dp[1][0] = 1
+        else:
+            dp[0][0] = 1
+            dp[1][0] = 0
+        for k in range(1, len(S)):
+            if S[k] == '0':
+                dp[0][k] = dp[0][k-1]
+                dp[1][k] = min(dp[1][k-1], dp[0][k-1]) + 1
+            else:
+                dp[1][k] = min(dp[0][k-1], dp[1][k-1])
+                dp[0][k] = dp[0][k-1] + 1
+        return min(dp[1][-1], dp[0][-1])
+
+class Solution4:
+    def minFlipsMonoIncr(self, S):
+        val0 = 0
+        val1 = 1
+        for i in range(1, len(S) + 1):
+            val0 = val0 + (S[i-1] == '1')
+            val1 = min(val1, val0) + (S[i-1] == '0')
+        return min(val0, val1)
+
 if __name__ == "__main__":
     S = '11011'
-    ans = Solution2().minFlipsMonoIncr(S)
+    ans = Solution3().minFlipsMonoIncr(S)
     print(ans)
