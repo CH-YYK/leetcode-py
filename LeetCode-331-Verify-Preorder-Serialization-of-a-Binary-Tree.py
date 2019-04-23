@@ -23,12 +23,16 @@ class Solution2:
         if seqs[0] == '#' or seqs[-1] != '#':
             return False
         stack = [seqs[0]]
-        for i in seqs:
+        for i in seqs[1:]:
             if not stack: return False
             if i == '#' and stack[-1] != '#':
                 stack.append(i)
             if i == '#' and stack[-1] == '#':
-                stack.pop()
-        return True
+                while stack and stack[-1] == '#':
+                    stack.pop()
+                    stack.pop()
+                if stack:
+                    stack.append(i)
+        return len(stack) == 0
         
             

@@ -12,6 +12,7 @@ class Solution(object):
             heapq.heappop(nums)
         return heapq.heappop(nums)
 
+class Solution2:
     def findKthLargest2(self, nums, k):  ## quick select
         return self.findKthSmallest(nums, len(nums) - k + 1)
 
