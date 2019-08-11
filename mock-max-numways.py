@@ -3,6 +3,5 @@ def maxnumways(n):
     hashtable = {}
     for i in range(2, n+1):
         hashtable[i] = 0
-        for k in range(i, n+1):
-            hashtable[i] += 1
-            
+        for k in range(2*i, n+1, i):
+            hashtable[i] 
